@@ -6,7 +6,15 @@ $(document).ready(function(){
 	nav_cat();
 	brand();
 	nav_brand();
-	product();
+    product();
+    showKendoTabs();
+    function showKendoTabs() {
+        $("#tabs-wrapper").show("slow");
+        $("#tabstrip").kendoTabStrip({
+            animation: { open: { effects: "fadeIn" } }
+        }).data('kendoTabStrip');
+
+    }
 	function cat(){
 		$.ajax({
 			url : "action.php",
