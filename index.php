@@ -40,7 +40,7 @@ include 'header.php';
             <div class="panel panel-info">
                 <div class="panel-heading"><h6><b>Trending Videos</b></h6></div>
                 <div class="panel-body ">
-                    <div id="get_product" >
+                    <div id="get_vid" >
 
                     </div>
 

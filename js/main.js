@@ -58,7 +58,7 @@ $(document).ready(function(){
 			}
 		})
 	}
-	
+
 	function product(){
 		$.ajax({
 			url : "action.php",
@@ -69,6 +69,17 @@ $(document).ready(function(){
 			}
 		})
 	}
+    showVideos();
+    function showVideos(){
+        $.ajax({
+            url : "action.php",
+            method : "POST",
+            data : {videos:1},
+            success : function(data){
+                $("#get_vid").html(data);
+            }
+        })
+    }
 	//category selection
 	
 	$("body").delegate(".category","click",function(event){
