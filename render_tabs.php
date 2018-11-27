@@ -23,7 +23,7 @@ function show_tabs($img,$title,$description,$price)
                         </a>
                      </li>
                     <li class='nav-item'>
-                        <a href='#effect' class='nav-link btn' fade role='tab' data-toggle='tab'>Effects/Benefits
+                        <a href='#effect' class='nav-link btn' fade role='tab' data-toggle='tab'>Effects
                         </a>
                     </li>
                     <li class='nav-item'>
@@ -34,10 +34,11 @@ function show_tabs($img,$title,$description,$price)
                 <div class='tab-content panel-body'>
                     <div id='info' role='tabpanel' class='tab-pane active'>
                         <img class='img img-responsive' src='$img' alt='Image'/>
+                        Sold @ Ghc $price
                      </div>
-                    <div id='cont' role='tabpanel' class='tab-pane'> $description </div>
+                    <div id='cont' role='tabpanel' class='tab-pane'> $description this is just a place holder</div>
                     <div id='effect' role='tabpanel' class='tab-pane'>$title</div>
-                    <div id='review' role='tabpanel' class='tab-pane'>$price</div>
+                    <div id='review' role='tabpanel' class='tab-pane'>Sold @ Ghc $price</div>
                 </div>           
             
             </div>

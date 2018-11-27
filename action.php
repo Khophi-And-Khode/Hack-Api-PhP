@@ -88,7 +88,7 @@ if(isset($_POST['product'])){
     $run_query=mysqli_query($conn,$product_query);
     $count = mysqli_num_rows($run_query);
     if($count > 0){
-        while($row=mysqli_fetch_assoc($run_query)){
+        while($row=mysqli_fetch_array($run_query)){
             $title ="Coca Cola";
             $description ="Coca Cola Zero sugar";
             $price =10;
@@ -128,7 +128,7 @@ if( isset($_POST['search'])){
         $description ="Coca Cola Zero sugar";
         $price =10;
         $imageUrl ="https://res.cloudinary.com/wendolin/image/upload/v1542843490/web/table.jpg";
-        show_image($imageUrl,$title,$description,$price);
-        //show_tabs($imageUrl,$title,$description,$price);
+        //show_image($imageUrl,$title,$description,$price);
+        show_tabs($imageUrl,$title,$description,$price);
     }
 }
