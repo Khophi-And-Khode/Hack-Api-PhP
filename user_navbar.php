@@ -29,7 +29,7 @@ echo '
 						</li>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<li class="active navbar-right pull-right">
-							<a href="#" class="dropdown-toggle" id="drop" data-toggle="dropdown">  Hello, <br>  '. $_SESSION["name"].'  <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" id="drop" data-toggle="dropdown">  Hello,'. $_SESSION["name"].'  <span class="caret"></span></a>
 							
 								<ul class="dropdown-menu" aria-labelledby="drop">
 									<li class="divider"></li>
