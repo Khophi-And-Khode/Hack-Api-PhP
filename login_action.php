@@ -10,7 +10,7 @@ if(isset($_POST["userLogin"])){
 		$run_query=mysqli_query($conn,$login_query);
 		$count=mysqli_num_rows($run_query);
 		if($count == 1){
-			$row = mysqli_fetch_array($run_query);
+			$row = mysqli_fetch_assoc($run_query);
 			$_SESSION["uid"]=$row["user_id"];
 			$_SESSION["name"]=$row["username"];
 				echo "hello";
