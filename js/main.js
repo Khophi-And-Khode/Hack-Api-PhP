@@ -7,14 +7,7 @@ $(document).ready(function(){
 	brand();
 	nav_brand();
     product();
-    showKendoTabs();
-    function showKendoTabs() {
-        $("#tabs-wrapper").show("slow");
-        $("#tabstrip").kendoTabStrip({
-            animation: { open: { effects: "fadeIn" } }
-        }).data('kendoTabStrip');
 
-    }
 	function cat(){
 		$.ajax({
 			url : "action.php",

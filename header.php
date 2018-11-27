@@ -17,16 +17,11 @@ echo '
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/wenstrap.css" />
     <link rel="stylesheet" href="css/slide.css" />
-    <link href="custom/kendo/styles/kendo.common.min.css" rel="stylesheet" />
-    <link href="custom/kendo/styles/kendo.default.mobile.min.css" rel="stylesheet" />
 
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootbox.min.js"></script>
 
-    <script src="custom/kendo/js/jszip.min.js"></script>
-    <script src="custom/kendo/js/kendo.all.min.js"></script>
     <script src="js/main.js"></script>
 
 

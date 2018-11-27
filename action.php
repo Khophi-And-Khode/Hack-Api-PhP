@@ -93,8 +93,8 @@ if(isset($_POST['product'])){
             $description ="Coca Cola Zero sugar";
             $price =10;
             $imageUrl ="https://res.cloudinary.com/wendolin/image/upload/v1542843490/web/table.jpg";
-            show_image($imageUrl,$title,$description,$price);
-            //show_tabs($imageUrl,$title,$description,$price);
+            //show_image($imageUrl,$title,$description,$price);
+            show_tabs($imageUrl,$title,$description,$price);
         }
 
     }

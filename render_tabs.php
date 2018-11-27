@@ -11,28 +11,37 @@ function show_tabs($img,$title,$description,$price)
 {
     cloudinary_url($img);
     echo "
-    <div id='tabs-wrapper'>
-        <ul>
-            <li id='tab-info' class='k-state-active'> <b>Info</b></li>
-            <li id='tab-const' class='tabs tabs-right'> <b>Constituent</b> </li>
-            <li id='tab-effect' class='tabs tabs-right'> <b>Effects & Benefits</b></li>
-            <li id='tab-review' class='tabs tabs-right'><b> Reviews</b></li>
-        </ul>
-        <div class='tabs-body'>
-            <div id='info'>
-                <img class='img img-responsive' src='$img' alt='Image'/>
-             </div>
+        <div class='col-md-3 col-xs-3 col-sm-3 col-lg-3 col-xl-3'>
+            <div class='panel panel-info'>
+                <ul class='nav nav-tabs'>
+                    <li class='nav-item'> 
+                        <a href='#info' class='nav-link active btn-primary' fade in role='tab' data-toggle='tab'>Info
+                        </a>
+                    </li>
+                    <li class='nav-item'>
+                        <a href='#cont' class='nav-link btn-info' fade role='tab' data-toggle='tab'>Content
+                        </a>
+                     </li>
+                    <li class='nav-item'>
+                        <a href='#effect' class='nav-link btn' fade role='tab' data-toggle='tab'>Effects/Benefits
+                        </a>
+                    </li>
+                    <li class='nav-item'>
+                        <a href='#review' class='nav-link btn btn-info' fade role='tab' data-toggle='tab'>Reviews
+                        </a>
+                    </li>
+                </ul>
+                <div class='tab-content panel-body'>
+                    <div id='info' role='tabpanel' class='tab-pane active'>
+                        <img class='img img-responsive' src='$img' alt='Image'/>
+                     </div>
+                    <div id='cont' role='tabpanel' class='tab-pane'> $description </div>
+                    <div id='effect' role='tabpanel' class='tab-pane'>$title</div>
+                    <div id='review' role='tabpanel' class='tab-pane'>$price</div>
+                </div>           
+            
+            </div>
         </div>
-        <div class='tabs-body'>
-            <div id='const'> $description </div>
-        </div>
-        <div class='tabs-body'>
-            <div id='effect'>$title</div>
-        </div>
-        <div class='tabs-body'>
-            <div id='review'>$price</div>
-        </div>
-    </div>
    ";
 
 

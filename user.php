@@ -19,22 +19,40 @@ include 'user_navbar.php';
 
         <!--TODO: Slides here-->
         <!--Image Display starts here-->
-        <div class="container-fluid" >
-            <div class="col-md-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading"><h6><b>PRODUCTS</b></h6></div>
-                    <div class="panel-body ">
-                        <div id="get_product" >
-                        </div>
-                    </div>
+<div class="container-fluid" >
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading"><h6><b>Trending Products</b></h6></div>
+            <div class="panel-body ">
+                <div id="get_product" >
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <?php
+    include 'paging.php';
+    ?>
+    <hr/>
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading"><h6><b>Trending Videos</b></h6></div>
+            <div class="panel-body ">
+                <div id="get_vid" >
+
                 </div>
 
             </div>
         </div>
 
-        <?php
-        include 'paging.php';
-        include 'footer.php';
-        ?>
+    </div>
+    <?php
+    include 'paging.php';
+    ?>
+</div>
+
+<?php
+include 'footer.php';
+?>
 </body>
 </html>
