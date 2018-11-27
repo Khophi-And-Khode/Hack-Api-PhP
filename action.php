@@ -120,14 +120,15 @@ if(isset($_POST['videos'])) {
 if( isset($_POST['search'])){
     $keyword = $_POST["keyword"];
     //$query=" SELECT * FROM products where product_keywords LIKE '%$keyword%'";
-    $query=" SELECT * from imagedata where name LIKE '%$keyword%'";
+    $query=" SELECT * from products where Keyword LIKE '%$keyword%'";
     $run_query=mysqli_query($conn,$query);
     while($row=mysqli_fetch_array($run_query)){
-        $title ="Coca Cola";
-        $description ="Coca Cola Zero sugar";
-        $price =10;
-        $imageUrl ="https://res.cloudinary.com/wendolin/image/upload/v1542843490/web/table.jpg";
-        //show_image($imageUrl,$title,$description,$price);
-        show_tabs($imageUrl,$title,$description,$price);
+        $img=$row["ImgUrl"];
+        $content=$row["Content"];
+        $effect=$row["Implication"];
+        $price=$row["Price"];
+        $review=$row["Reviews"];
+        $name=$row["Name"];
+        show_tabs($img,$content,$effect,$price,$review,$name);
     }
 }
