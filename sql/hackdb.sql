@@ -54,10 +54,20 @@ create table products(
 	Id int auto_increment,
 	Name text not null,
 	Price double not null,
-	ImgUrl double not null,
+	ImgUrl text not null,
 	Content text not null,
 	Implication text not null,
 	Reviews text not null,
 	PublicId text not null,
+	Keyword text not null,
 	primary key (id)
+);
+
+--insert into products (Name, Price, ImgUrl, Content, Implication, Reviews, PublicId, Keyword) values ('',0,'','','','','','');
+
+create table reviews(
+  Id int auto_increment,
+  PublicId text,
+  Message text,
+  primary key(Id)
 );

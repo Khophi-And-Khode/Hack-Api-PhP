@@ -52,7 +52,6 @@ include 'header.php';
         include 'paging.php';
         ?>
     </div>
-
 <?php
 include 'footer.php';
 ?>

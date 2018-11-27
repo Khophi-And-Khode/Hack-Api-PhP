@@ -6,17 +6,16 @@
  * Time: 1:23 AM
  */
 
-global $img,$title,$price,$description;
-function show_tabs($img,$title,$description,$price)
+global $img,$content,$price,$effect,$review,$name;
+function show_tabs($img,$content,$effect,$price,$review,$name)
 {
     cloudinary_url($img);
     echo "
-        <div class='col-md-3 col-xs-3 col-sm-3 col-lg-3 col-xl-3'>
+        <div class='col-xs-12 col-sm-5 col-md-3 col-lg-3 col-xl-3'>
             <div class='panel panel-info'>
                 <ul class='nav nav-tabs'>
                     <li class='nav-item'> 
-                        <a href='#info' class='nav-link active btn-primary' fade in role='tab' data-toggle='tab'>Info
-                        </a>
+                        <a href='#info' class='nav-link active btn-primary' fade in role='tab' data-toggle='tab'>Info</a>
                     </li>
                     <li class='nav-item'>
                         <a href='#cont' class='nav-link btn-info' fade role='tab' data-toggle='tab'>Content
@@ -36,13 +35,14 @@ function show_tabs($img,$title,$description,$price)
                         <img class='img img-responsive' src='$img' alt='Image'/>
                         Sold @ Ghc $price
                      </div>
-                    <div id='cont' role='tabpanel' class='tab-pane'> $description this is just a place holder</div>
-                    <div id='effect' role='tabpanel' class='tab-pane'>$title</div>
-                    <div id='review' role='tabpanel' class='tab-pane'>Sold @ Ghc $price</div>
+                    <div id='cont' role='tabpanel' class='tab-pane'>$name <br> $content </div>
+                    <div id='effect' role='tabpanel' class='tab-pane'>$effect</div>
+                    <div id='review' role='tabpanel' class='tab-pane'>$review</div>
                 </div>           
             
             </div>
         </div>
+       
    ";
 
 
