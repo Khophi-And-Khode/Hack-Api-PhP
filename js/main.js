@@ -23,7 +23,8 @@ $(document).ready(function(){
 			scrollTop: 0,
 		},2000);
     });
-		
+
+
 	cat();
 	nav_cat();
 	brand();
