@@ -14,7 +14,7 @@ include 'render_tabs.php';
 
 
 function do_upload(){
-    \Cloudinary\Uploader::upload('img/logo.jpg');
+    \Cloudinary\Uploader::upload(realpath(dirname(__FILE__).'/img/logo.jpg'));
 }
 
 global $img,$title,$price,$description;
@@ -132,3 +132,4 @@ if( isset($_POST['search'])){
         show_tabs($imageUrl,$title,$description,$price);
     }
 }
+do_upload();

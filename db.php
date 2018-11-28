@@ -1,7 +1,7 @@
 <?php
 $server ="localhost";
 $user ="root";
-$password ="root";
+$password ="";
 $database ="hackdb";
 
 $conn = mysqli_connect($server,$user,$password,$database);
