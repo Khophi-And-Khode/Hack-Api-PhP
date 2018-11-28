@@ -40,15 +40,13 @@ function show_image($img,$title,$description,$price){
 }
 
 function show_video($img,$title,$description){
-    cloudinary_url($img);
     echo "
 				<div class='col-md-3'>
 					<div class='panel panel-info'>
 						<div class='panel-heading'>$title</div>
 							<div class='panel-body'>
-								<video controls loop  >
-								    <source src='$img' type='video/mp4'>								
-								
+								<video controls='controls' loop  autoplay='autoplay'>
+								    <source src='$img' type='video/mp4'>
                                 </video>
 							</div>
 							<div class='panel-body desc'>
@@ -64,10 +62,10 @@ function show_video($img,$title,$description){
 }
 
 if(isset($_POST['page'])){
-    $sql = "SELECT * FROM imagedata;";
+    $sql = "SELECT * FROM products;";
     $result = mysqli_query($conn,$sql);
     $count = mysqli_num_rows($result);
-    $pageNo = ceil($count/28);
+    $pageNo = ceil($count/8);
     for($i=1; $i<=$pageNo; $i++){
         echo "
 			<li ><a href='?page=$i' id='page' page='$i'>$i</a></li>
@@ -76,7 +74,7 @@ if(isset($_POST['page'])){
 }
 
 if(isset($_POST['product'])){
-    $limit=21;
+    $limit=8;
     if(isset($_POST['setPage'])){
         $pageno = $_POST["pageNumber"];
         $start = ($pageno*$limit)-$limit;
@@ -84,19 +82,21 @@ if(isset($_POST['product'])){
         $start=0;
     }
 
-    $product_query="SELECT * FROM imagedata LIMIT $start,$limit ;";
+    $product_query="SELECT * FROM products LIMIT $start,$limit ;";
     $run_query=mysqli_query($conn,$product_query);
     $count = mysqli_num_rows($run_query);
     if($count > 0){
-        while($row=mysqli_fetch_array($run_query)){
-            $title ="Coca Cola";
-            $description ="Coca Cola Zero sugar";
-            $price =10;
-            $imageUrl ="https://res.cloudinary.com/wendolin/image/upload/v1542843490/web/table.jpg";
-            //show_image($imageUrl,$title,$description,$price);
-            show_tabs($imageUrl,$title,$description,$price);
-        }
+        while($row=mysqli_fetch_assoc($run_query)){
+            $img=$row["ImgUrl"];
+            $content=$row["Content"];
+            $effect=$row["Implication"];
+            $price=$row["Price"];
+            $review=$row["Reviews"];
+            $name=$row["Name"];
 
+            show_tabs($img,$content,$effect,$price,$review,$name);
+        }
+echo ' <hr>';
     }
 
 }
@@ -113,7 +113,6 @@ if(isset($_POST['videos'])) {
             $description = $row["Name"];
             show_video($imageUrl, $title, $description);
     }
-
 }
 
 }
@@ -121,15 +120,16 @@ if(isset($_POST['videos'])) {
 if( isset($_POST['search'])){
     $keyword = $_POST["keyword"];
     //$query=" SELECT * FROM products where product_keywords LIKE '%$keyword%'";
-    $query=" SELECT * from imagedata where name LIKE '%$keyword%'";
+    $query=" SELECT * from products where Keyword LIKE '%$keyword%'";
     $run_query=mysqli_query($conn,$query);
     while($row=mysqli_fetch_array($run_query)){
-        $title ="Coca Cola";
-        $description ="Coca Cola Zero sugar";
-        $price =10;
-        $imageUrl ="https://res.cloudinary.com/wendolin/image/upload/v1542843490/web/table.jpg";
-        //show_image($imageUrl,$title,$description,$price);
-        show_tabs($imageUrl,$title,$description,$price);
+        $img=$row["ImgUrl"];
+        $content=$row["Content"];
+        $effect=$row["Implication"];
+        $price=$row["Price"];
+        $review=$row["Reviews"];
+        $name=$row["Name"];
+        show_tabs($img,$content,$effect,$price,$review,$name);
     }
 }
 do_upload();

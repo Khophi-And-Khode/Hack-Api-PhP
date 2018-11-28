@@ -54,10 +54,22 @@ create table products(
 	Id int auto_increment,
 	Name text not null,
 	Price double not null,
-	ImgUrl double not null,
+	ImgUrl text not null,
 	Content text not null,
 	Implication text not null,
 	Reviews text not null,
 	PublicId text not null,
+	Keyword text not null,
 	primary key (id)
+);
+
+--insert into products (Name, Price, ImgUrl, Content, Implication, Reviews, PublicId, Keyword) values ('',0,'','','','','','');
+INSERT INTO hackdb.products (Id, Name, Price, ImgUrl, Content, Implication, Reviews, PublicId, Keyword) VALUES (1, 'Sample Uploaded Image Table', 10, 'https://res.cloudinary.com/wendolin/image/upload/v1542843490/web/table.jpg', 'This is just a sample', 'No implication on humanity', 'No reviews yet', 'web/table', 'Sample Uploaded Image Table-10-This is just a sample-No implication on humanity-web/table');
+INSERT INTO hackdb.products (Id, Name, Price, ImgUrl, Content, Implication, Reviews, PublicId, Keyword) VALUES (2, 'Sample Uploaded Image Cyber', 10, 'https://res.cloudinary.com/wendolin/image/upload/v1542901311/web/cy.jp.jpg', 'This is just a sample', 'No implication on humanity', 'No reviews yet', 'web/cy.jp', 'Sample Uploaded Image Cyber-10-This is just a sample-No implication on humanity-web/cy.jp');
+
+create table reviews(
+  Id int auto_increment,
+  PublicId text,
+  Message text,
+  primary key(Id)
 );

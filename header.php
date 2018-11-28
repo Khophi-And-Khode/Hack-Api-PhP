@@ -10,7 +10,7 @@ echo '
 
 <head>
     <meta charset="utf-8" />
-    <title>Khophi & Khode Health Arena</title>
+    <title>iHealth Arena</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="img/logo.jpg" />
