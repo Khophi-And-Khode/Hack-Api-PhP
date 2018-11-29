@@ -13,12 +13,12 @@ if(isset($_POST["userLogin"])){
 			$row = mysqli_fetch_assoc($run_query);
 			$_SESSION["uid"]=$row["user_id"];
 			$_SESSION["name"]=$row["username"];
+            echo "hello";
+				//if($_SESSION["name"]=="Administrator" || $_SESSION["name"]=="administrator" || $_SESSION["name"]=="Admin" || $_SESSION["name"]=="admin"){
+				   // echo "admin";
+                //}else{
 
-				if($_SESSION["name"]=="Administrator" || $_SESSION["name"]=="administrator" || $_SESSION["name"]=="Admin" || $_SESSION["name"]=="admin"){
-				    echo "admin";
-                }else{
-                    echo "hello";
-                }
+               // }
 		}else{
 			echo "
 				<div class='alert alert-danger alert-dismissable' style='position: fixed;z-index:10'>

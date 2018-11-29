@@ -19,7 +19,7 @@ $image=$_POST["image"];
 //echo $image;
 
 
-if(empty($name) || empty($price) || empty($content) || empty($implications)){
+if(empty($name) || empty($price) || empty($content) || empty($implications) || empty($image)){
     echo "
 		<div class='alert alert-danger alert-dismissable' style='position: fixed;z-index:10'>
 			<button class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>

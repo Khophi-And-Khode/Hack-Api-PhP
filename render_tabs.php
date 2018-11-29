@@ -8,9 +8,9 @@
 
 
 
-global $img,$content,$price,$effect,$review,$name,$rand;
+global $img,$content,$price,$effect,$review,$name,$rand,$pid;
 
-function show_tabs($img,$content,$effect,$price,$review,$name)
+function show_tabs($img,$content,$effect,$price,$review,$name,$pid)
 {
     $rand=random_int(3,99999999);
     cloudinary_url($img);
@@ -45,7 +45,10 @@ function show_tabs($img,$content,$effect,$price,$review,$name)
                      </div>
                     <div id='cont$id_cont' role='tabpanel' class='tab-pane'>$name <br> $content </div>
                     <div id='eff$id_effect' role='tabpanel' class='tab-pane'>$effect</div>
-                    <div id='rev$id_review' role='tabpanel' class='tab-pane'>$review</div>
+                    <div id='rev$id_review' role='tabpanel' class='tab-pane'>$review
+                    <textarea class='form-control' p_id='$pid' id='txt_review' style='height: 100px;width: 150px;' placeholder='Write your review here'></textarea>
+                    <button class='btn btn-info' type='submit' name='send_review' id='send_review'><span class='glyphicon glyphicon-send'></span></button>
+                    </div>
                 </div>           
             
             </div>

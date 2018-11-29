@@ -1,4 +1,14 @@
+<?php
+session_start();
+$name=$_SESSION["name"];
+if(!isset($_SESSION["uid"])){
+    header("location: index.php");
+}
+if($name !="admin" && $name !="Admin" && $name !="Administrator" && $name !="administrator"){
+    header("location: user.php");
+}
 
+?>
 <!DOCTYPE html>
 
 <html>
@@ -7,7 +17,7 @@ include 'header.php';
 ?>
 <body class="panel panel-info ">
 <?php
-include 'navbar.php';
+include 'admin_navbar.php';
 ?>
 <div class="container-fluid panel-heading" style="margin:5px;">
     <div class="row">
