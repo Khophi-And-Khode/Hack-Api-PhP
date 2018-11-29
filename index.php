@@ -5,6 +5,7 @@ if(isset($_SESSION["uid"])){
 }
 
 include 'action.php';
+include 'db.php';
 
 ?>
 
@@ -52,7 +53,9 @@ include 'header.php';
         include 'paging.php';
         ?>
     </div>
+
 <?php
+//upload_image($conn,'logo.jpg','Sample Logo',20,'This just a logo','It literally doesnt have implications');
 include 'footer.php';
 ?>
 </body>

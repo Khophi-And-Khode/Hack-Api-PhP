@@ -11,13 +11,40 @@ require 'src/Helpers.php';
 include 'settings.php';
 include 'db.php';
 include 'render_tabs.php';
+include 'admin/admin_action.php';
 
 
-function do_upload(){
-    \Cloudinary\Uploader::upload(realpath(dirname(__FILE__).'/img/logo.jpg'));
+global $img,$title,$price,$description,$uploadResult,$secureUrl,$width,$height,$publicId,$sign,$format,$resType,$url,$content,$implication,$review,$fillResult;
+function upload_image($conn,$img,$name,$price,$content,$implications){
+    $pub_id=substr($img,0,5);
+    $uploadResult = \Cloudinary\Uploader::upload(realpath(dirname(__FILE__).'/img/'.$img),
+        array("folder" => "web/", "public_id" => "khophi_".$pub_id, "overwrite" => TRUE,
+            "resource_type" => "image",
+            "transformation"=>array(
+                array("x"=>355, "y"=>410, "width"=>300, "height"=>200, "crop"=>"scale"),
+                array("width"=>200, "height"=>200, "crop"=>"scale")
+            )
+        )
+        );
+    $secureUrl = $uploadResult['secure_url'];
+    $width = $uploadResult['width'];
+    $height = $uploadResult['height'];
+    $publicId = $uploadResult['public_id'];
+    $sign = $uploadResult['signature'];
+    $format = $uploadResult['format'];
+    $resType = $uploadResult['resource_type'];
+    $url = $uploadResult['url'];
+
+    $result=FillImageAndProduct($conn,$name,$height,$width,$sign,$format,$resType,$secureUrl,$url,$publicId,$price,$content,$implications);
+    if($result==true){
+       return true;
+    }else{
+       return false;
+    }
+
 }
 
-global $img,$title,$price,$description;
+/*
 function show_image($img,$title,$description,$price){
     cloudinary_url($img);
     echo "
@@ -38,6 +65,7 @@ function show_image($img,$title,$description,$price){
 			";
     echo '</div>';
 }
+*/
 
 function show_video($img,$title,$description){
     echo "
@@ -119,7 +147,6 @@ if(isset($_POST['videos'])) {
 
 if( isset($_POST['search'])){
     $keyword = $_POST["keyword"];
-    //$query=" SELECT * FROM products where product_keywords LIKE '%$keyword%'";
     $query=" SELECT * from products where Keyword LIKE '%$keyword%'";
     $run_query=mysqli_query($conn,$query);
     while($row=mysqli_fetch_array($run_query)){
@@ -132,4 +159,3 @@ if( isset($_POST['search'])){
         show_tabs($img,$content,$effect,$price,$review,$name);
     }
 }
-do_upload();
