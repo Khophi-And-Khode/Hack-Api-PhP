@@ -1,9 +1,9 @@
 <?php
 $server ="localhost";
 $user ="root";
-$password ="";
+$password ="root";
 $database ="hackdb";
-
+global $conn;
 $conn = mysqli_connect($server,$user,$password,$database);
 
 if(!$conn){

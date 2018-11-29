@@ -24,6 +24,24 @@ $(document).ready(function(){
 		},2000);
     });
 
+    $("#save_image_btn").click(function(event){
+        event.preventDefault();
+    	let img = document.getElementById("image_file").value.split("\\");
+    	let imag= img[img.length-1];
+        console.log(imag);
+
+        $.ajax({
+            url : "main_action.php",
+            method : "POST",
+            data : $('#image_saver').serialize(),
+            success : function(data){
+                $("#get_msg").html(data);
+            }
+
+        })
+
+    })
+
 
 	cat();
 	nav_cat();

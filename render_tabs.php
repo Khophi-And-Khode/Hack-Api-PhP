@@ -12,7 +12,7 @@ global $img,$content,$price,$effect,$review,$name,$rand;
 
 function show_tabs($img,$content,$effect,$price,$review,$name)
 {
-    $rand=random_int(3,222222);
+    $rand=random_int(3,99999999);
     cloudinary_url($img);
     $id_info=$rand;
     $id_cont=$rand;
