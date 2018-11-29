@@ -188,7 +188,10 @@ $(document).ready(function(){
 			success : function(data){
 				if(data == "hello"){
 					window.location.href = "user.php";
-				}else{
+				}else if(data == "admin"){
+                    window.location.href = "admin.php";
+				}
+				else{
 					$("#login_msg").html(data);
 				}    
 				
