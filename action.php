@@ -21,8 +21,8 @@ function upload_image($conn,$img,$name,$price,$content,$implications){
         array("folder" => "web/", "public_id" => "khophi_".$pub_id, "overwrite" => TRUE,
             "resource_type" => "image",
             "transformation"=>array(
-                array("x"=>355, "y"=>410, "width"=>300, "height"=>200, "crop"=>"scale"),
-                array("width"=>200, "height"=>200, "crop"=>"scale")
+                array("width"=>300, "height"=>300, "crop"=>"scale"),
+                array("width"=>300, "height"=>300, "crop"=>"scale")
             )
         )
         );
@@ -44,28 +44,7 @@ function upload_image($conn,$img,$name,$price,$content,$implications){
 
 }
 
-/*
-function show_image($img,$title,$description,$price){
-    cloudinary_url($img);
-    echo "
-				<div class='col-md-3'>
-					<div class='panel panel-info'>
-						<div class='panel-heading'>$title</div>
-							<div class='panel-body'>
-								<img class='img img-responsive' src='$img' alt='Image'/>
-							</div>
-							<div class='panel-body desc'>
-								$description
-							</div>
-							
-						<div class='panel-footer'>GHc $price
-						</div>		
-					</div>
-				</div>
-			";
-    echo '</div>';
-}
-*/
+
 
 function show_video($img,$title,$description){
     echo "
@@ -93,7 +72,7 @@ if(isset($_POST['page'])){
     $sql = "SELECT * FROM products;";
     $result = mysqli_query($conn,$sql);
     $count = mysqli_num_rows($result);
-    $pageNo = ceil($count/8);
+    $pageNo = ceil($count/18);
     for($i=1; $i<=$pageNo; $i++){
         echo "
 			<li ><a href='?page=$i' id='page' page='$i'>$i</a></li>
@@ -102,7 +81,7 @@ if(isset($_POST['page'])){
 }
 
 if(isset($_POST['product'])){
-    $limit=8;
+    $limit=16;
     if(isset($_POST['setPage'])){
         $pageno = $_POST["pageNumber"];
         $start = ($pageno*$limit)-$limit;
@@ -121,8 +100,9 @@ if(isset($_POST['product'])){
             $price=$row["Price"];
             $review=$row["Reviews"];
             $name=$row["Name"];
+            $pId=$row["Id"];
 
-            show_tabs($img,$content,$effect,$price,$review,$name);
+            show_tabs($img,$content,$effect,$price,$review,$name,$pId);
         }
 echo ' <hr>';
     }
@@ -156,6 +136,38 @@ if( isset($_POST['search'])){
         $price=$row["Price"];
         $review=$row["Reviews"];
         $name=$row["Name"];
-        show_tabs($img,$content,$effect,$price,$review,$name);
+        $pId=$row["Id"];
+
+        show_tabs($img,$content,$effect,$price,$review,$name,$pId);
+    }
+}
+
+if( isset($_POST['send_review'])){
+    $pId = $_POST["proId"];
+    $msg=$_POST["message"];
+
+    $query=" SELECT Reviews from products where Id=$pId";
+    $run_query=mysqli_query($conn,$query);
+    while($row=mysqli_fetch_array($run_query)){
+        $rev=$row["Reviews"];
+        $sql="UPDATE products set Reviews=concat(' $msg <br>',Reviews) where Id='$pId';";
+        $run_slq = mysqli_query($conn,$sql);
+        if($run_slq){
+            echo " 
+			<div class='alert alert-success alert-dismissable' style='position: fixed;z-index:10'>
+				<button class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+				<b>Thank you..!!!<br> Your Review Has been successfully send.</br> <br>
+				
+			</div>
+			";
+        }else{
+            echo " 
+			<div class='alert alert-danger alert-dismissable' style='position: fixed;z-index:10'>
+				<button class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+				<b>Ooops an error occurred sending your review. The technical team have received a notification. The sought it out soon.</br> <br>
+				
+			</div>
+			";
+        }
     }
 }

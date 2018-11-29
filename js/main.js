@@ -41,11 +41,11 @@ $(document).ready(function(){
             data : {name:name,price:price,content:content,implication:implication,image:imag},
             success : function(data){
                 $("#get_msg").html(data);
-                name="";
-                price="";
-                content="";
-                implication="";
-                img="";
+                document.getElementById("name").value="";
+                document.getElementById("price").value="";
+                document.getElementById("content").value="";
+                document.getElementById("implication").value="";
+                document.getElementById("image_file").value="";
             }
 
         })
@@ -53,55 +53,13 @@ $(document).ready(function(){
     })
 
 
-	cat();
-	nav_cat();
-	brand();
-	nav_brand();
+
+
     product();
 
-	function cat(){
-		$.ajax({
-			url : "action.php",
-			method : "POST",
-			data : {category:1},
-			success : function(data){
-				$("#getCategory").html(data);
-			}
-		})
-	}
+
 	
-	function nav_cat(){
-		$.ajax({
-			url : "action.php",
-			method : "POST",
-			data : {nav_category:1},
-			success : function(data){
-				$("#get_nav_Category").html(data);
-			}
-		})
-	}
-	
-	function brand(){
-		$.ajax({
-			url : "action.php",
-			method : "POST",
-			data : {brand:1},
-			success : function(data){
-				$("#getBrand").html(data);
-			}
-		})
-	}
-	
-	function nav_brand(){
-		$.ajax({
-			url : "action.php",
-			method : "POST",
-			data : {nav_brand:1},
-			success : function(data){
-				$("#get_nav_brand").html(data);
-			}
-		})
-	}
+
 
 	function product(){
 		$.ajax({
@@ -126,34 +84,7 @@ $(document).ready(function(){
     }
 	//category selection
 	
-	$("body").delegate(".category","click",function(event){
-		event.preventDefault();
-		let cid = $(this).attr('cid');
-		//alert(cid);
-		$.ajax({
-			url : "action.php",
-			method : "POST",
-			data : {get_selected_cat:1,cat_id:cid},
-			success : function(data){
-				$("#get_product").html(data);
-			}
-		})
-	})
-	
-	//brand selection
-	$("body").delegate(".brand","click",function(event){
-		event.preventDefault();
-		let bid = $(this).attr('bid');
-		//alert(bid);
-		$.ajax({
-			url : "action.php",
-			method : "POST",
-			data : {get_selected_brand:1,brand_id:bid},
-			success : function(data){
-				$("#get_product").html(data);
-			}
-		})
-	})
+
 
 	$("#btn_search").click(function(event){
 		event.preventDefault();
@@ -189,8 +120,8 @@ $(document).ready(function(){
 	
 	$("#signin_btn").click(function(event){
 		event.preventDefault();
-		var username = $("#username").val();
-		var pass = $("#password").val();
+		let username = $("#username").val();
+		let pass = $("#password").val();
 		$.ajax({
 			url 	: "login_action.php",
 			method 	: "POST",
@@ -198,8 +129,8 @@ $(document).ready(function(){
 			success : function(data){
 				if(data == "hello"){
 					window.location.href = "user.php";
-				}else if(data == "admin"){
-                    window.location.href = "admin.php";
+				//}else if(data == "admin"){
+                   // window.location.href = "admin.php";
 				}
 				else{
 					$("#login_msg").html(data);
@@ -209,6 +140,38 @@ $(document).ready(function(){
 				
 		})
 	})
+
+    /*$("#send_review").click(function(event){
+        event.preventDefault();
+        let p_Id = $("#").val();
+        $.ajax({
+            url 	: "login_action.php",
+            method 	: "POST",
+            data 	: {userLogin:1,userName:username,userPassword:pass},
+            success : function(data){
+                   $("#login_msg").html(data);
+            }
+
+        })
+    }) */
+
+    $("body").delegate("#send_review","click",function(event){
+        event.preventDefault();
+        //alert("hello");
+        let p_Id = $("#txt_review").attr('p_id');
+        let message=document.getElementById("txt_review").value;
+
+        $.ajax({
+            url 	: "action.php",
+            method 	: "POST",
+            data 	: {send_review:1,proId:p_Id,message:message},
+            success : function(data){
+                $("#review_msg").html(data);
+                document.getElementById("txt_review").value="";
+            }
+        })
+
+    })
 	
 	$("body").delegate("#product","click",function(event){
 				event.preventDefault();

@@ -24,6 +24,13 @@ include 'header.php';
 <!--Image Display starts here-->
     <div class="container-fluid" >
         <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-8" id="review_msg">
+
+                </div>
+                <div class="col-md-4"></div>
+            </div>
             <div class="panel panel-info">
                 <div class="panel-heading"><h6><b>Trending Products</b></h6></div>
                 <div class="panel-body ">
