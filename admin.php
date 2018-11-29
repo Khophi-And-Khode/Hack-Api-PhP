@@ -44,6 +44,7 @@ include 'navbar.php';
                     <input class="form-control" type="file" id="image_file" name="image_file" />
                     <hr>
 
+
                     <p class="text text-danger"> * Means Required Fields</p>
 
                     <button type="submit" class="btn btn-danger pull-right" id="save_image_btn" name="submit"><span class="glyphicon glyphicon-saved"></span></button>
