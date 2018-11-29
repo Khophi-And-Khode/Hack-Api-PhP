@@ -24,18 +24,28 @@ $(document).ready(function(){
 		},2000);
     });
 
+	//$('#image_saver').serialize()
+
     $("#save_image_btn").click(function(event){
         event.preventDefault();
+    	let name = document.getElementById("name").value;
+    	let price = document.getElementById("price").value;
+    	let content = document.getElementById("content").value;
+    	let implication = document.getElementById("implication").value;
     	let img = document.getElementById("image_file").value.split("\\");
     	let imag= img[img.length-1];
-        console.log(imag);
-
+        //console.log(imag +" "+price);
         $.ajax({
             url : "main_action.php",
             method : "POST",
-            data : $('#image_saver').serialize(),
+            data : {name:name,price:price,content:content,implication:implication,image:imag},
             success : function(data){
                 $("#get_msg").html(data);
+                name="";
+                price="";
+                content="";
+                implication="";
+                img="";
             }
 
         })
