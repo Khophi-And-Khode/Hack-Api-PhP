@@ -145,6 +145,7 @@ if( isset($_POST['search'])){
 if( isset($_POST['send_review'])){
     $pId = $_POST["proId"];
     $msg=$_POST["message"];
+    //echo $msg;
 
     $query=" SELECT Reviews from products where Id=$pId";
     $run_query=mysqli_query($conn,$query);

@@ -10,7 +10,7 @@ echo '
 
 <head>
     <meta charset="utf-8" />
-    <title>iHealth Arena</title>
+    <title>ProView</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="img/logo.jpg" />
@@ -23,6 +23,7 @@ echo '
     <script src="js/bootstrap.min.js"></script>
 
     <script src="js/main.js"></script>
+    <script src="fbapp/fb.js"></script>
 
 
 </head>

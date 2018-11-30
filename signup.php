@@ -53,10 +53,17 @@ include 'navbar.php';
 						
 						<button type="submit" class="btn btn-danger pull-right" id="signup_btn" name="signup_btn">Register</button>
 					</form>
+                    <button class="btn btn-primary" style="width: 100px;height: 50px;">
+                    <fb:login-button
+                            scope="public_profile,email"
+                            onlogin="checkLoginState();">
+                    </fb:login-button>
+                    </button>
 				</div>
 			<p class="text text-info"> If you've already Register,please click on Login here</p>
-			<div class="panel-footer "><a href="signin.php" target="_self" class="btn btn-xs btn-warning active"><h4>LogIn Here</h4></a></div>
+			<div class="panel-footer "><a href="signin.php" target="_parent" class="btn btn-xs btn-warning active"><h4>LogIn Here</h4></a></div>
 			</div>
+
 			<div class="col-md-4"></div>
 		</div>
 

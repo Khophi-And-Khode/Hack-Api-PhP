@@ -4,7 +4,7 @@
 	<?php
     include 'header.php';
 	?>
-<body class="panel panel-warning ">
+<body class="panel panel-warning " style="margin-top: 100px;margin-bottom: -50px">
 <?php
 include 'navbar.php';
 ?>
@@ -24,7 +24,7 @@ include 'navbar.php';
 		</div>
 		<div class="row">
 			<div class="col-md-4"></div>		
-			<div class="col-md-4 panel panel-primary"  >
+			<div class="col-md-4 panel panel-primary"  align="center">
 					<div class="panel-heading "><h3>LogIn Here</h3></div>
 					<div class="panel-heading">
 						
@@ -38,11 +38,18 @@ include 'navbar.php';
 								<button type="submit" class="btn btn-primary pull-right" id="signin_btn" name="signin_btn">LogIn</button>
 								<button type="submit" class="btn btn-warning pull-left"><span class="glyphicon glyphicon-info-sign"></span>Forgotten Password</button>
 							</form>
-						
+
 					</div>
+
 					<div class="panel-footer "><br> 
 						<p class="text text-danger"> If you are New here , kindly create an account. </p>
-						<a href="signup.php" target="_self" class="btn btn-xs active"><h4>Create Account</h4></a>
+						<a href="signup.php" target="_parent" class="btn btn-xs active"><h4>Create Account</h4></a>
+                        <button class="btn btn-primary" style="width: 100px;height: 50px; ">
+                            <fb:login-button
+                                    scope="public_profile,email"
+                                    onlogin="checkLoginState();">
+                            </fb:login-button>
+                        </button>
 					</div>
 			</div>
 			<div class="col-md-4"></div>

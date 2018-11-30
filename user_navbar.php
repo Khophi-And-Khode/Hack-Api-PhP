@@ -12,7 +12,7 @@ echo '
         <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
 			<nav class="navbar navbar-inverse navbar-fixed-top " role="navigation" >
 				<div class="navbar-header">
-					<a class="navbar-brand" >iHealth Arena</a>
+					<a class="navbar-brand" >ProView</a>
 				</div>
 				<button class="navbar-toggle btn btn-primary" data-toggle="collapse" data-target=".navHeaderCollapse">
 					<span class="icon-bar"></span>

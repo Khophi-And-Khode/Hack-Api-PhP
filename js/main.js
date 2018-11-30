@@ -57,10 +57,6 @@ $(document).ready(function(){
 
     product();
 
-
-	
-
-
 	function product(){
 		$.ajax({
 			url : "action.php",
@@ -141,33 +137,24 @@ $(document).ready(function(){
 		})
 	})
 
-    /*$("#send_review").click(function(event){
-        event.preventDefault();
-        let p_Id = $("#").val();
-        $.ajax({
-            url 	: "login_action.php",
-            method 	: "POST",
-            data 	: {userLogin:1,userName:username,userPassword:pass},
-            success : function(data){
-                   $("#login_msg").html(data);
-            }
 
-        })
-    }) */
 
     $("body").delegate("#send_review","click",function(event){
         event.preventDefault();
         //alert("hello");
         let p_Id = $("#txt_review").attr('p_id');
         let message=document.getElementById("txt_review").value;
-
+		//alert(message);
         $.ajax({
             url 	: "action.php",
             method 	: "POST",
             data 	: {send_review:1,proId:p_Id,message:message},
             success : function(data){
                 $("#review_msg").html(data);
-                document.getElementById("txt_review").value="";
+                if(data){
+                    document.getElementById("txt_review").value="";
+				}
+
             }
         })
 

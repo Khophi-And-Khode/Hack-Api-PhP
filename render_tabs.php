@@ -23,7 +23,7 @@ function show_tabs($img,$content,$effect,$price,$review,$name,$pid)
             <div class='panel panel-info'>
                 <ul class='nav nav-tabs'>
                     <li class='nav-item'> 
-                        <a href='#info$id_info' class='nav-link active btn-primary' fade in role='tab' data-toggle='tab'>Info</a>
+                        <a href='#info$id_info' class='nav-link active btn-primary' fade in role='tab' data-toggle='tab'>Product</a>
                     </li>
                     <li class='nav-item'>
                         <a href='#cont$id_cont' class='nav-link btn-info' fade role='tab' data-toggle='tab'>Content
@@ -46,7 +46,7 @@ function show_tabs($img,$content,$effect,$price,$review,$name,$pid)
                     <div id='cont$id_cont' role='tabpanel' class='tab-pane'>$name <br> $content </div>
                     <div id='eff$id_effect' role='tabpanel' class='tab-pane'>$effect</div>
                     <div id='rev$id_review' role='tabpanel' class='tab-pane'>$review
-                    <textarea class='form-control' p_id='$pid' id='txt_review' style='height: 100px;width: 150px;' placeholder='Write your review here'></textarea>
+                    <textarea class='form-control text-box' p_id='$pid' id='txt_review' style='height: 100px;width: 150px;' placeholder='Write your review here'></textarea>
                     <button class='btn btn-info' type='submit' name='send_review' id='send_review'><span class='glyphicon glyphicon-send'></span></button>
                     </div>
                 </div>           
